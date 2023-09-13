@@ -8,6 +8,14 @@ const Header = () => {
       <Link className="header-link color-primary" to={"/"}>
         Derek Noel Torres
       </Link>
+      <span>
+        <Link className="header-link color-secondary" to={"/login"}>
+          Login
+        </Link>
+        <Link className="header-link color-secondary" to={"/register"}>
+          Register
+        </Link>
+      </span>
     </header>
   );
 };
