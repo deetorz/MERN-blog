@@ -1,0 +1,21 @@
+.form {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  input {
+    border: 1px solid #565656;
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    border: 1px solid #565656;
+  }
+  input,
+  button {
+    padding: 0.5em;
+    border-radius: 5px;
+  }
+}

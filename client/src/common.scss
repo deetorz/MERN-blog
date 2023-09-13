@@ -1,0 +1,30 @@
+/* spot palette */
+.color {
+  &-primary {
+    color: #565656;
+  }
+  &-secondary {
+    color: #d2d2d2;
+  }
+  &-accent-purple {
+    color: #f2ecff;
+  }
+  &-accent-green {
+    color: #00c896;
+  }
+}
+
+.background {
+  &-primary {
+    background-color: #565656;
+  }
+  &-secondary {
+    background-color: #d2d2d2;
+  }
+  &-accent-purple {
+    background-color: #f2ecff;
+  }
+  &-accent-green {
+    background-color: #00c896;
+  }
+}

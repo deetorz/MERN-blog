@@ -1,0 +1,19 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  > img {
+    flex: 90%;
+    width: 100%;
+  }
+  &-title {
+    flex: auto;
+    width: 90%;
+    margin: 0;
+    text-align: center;
+    align-self: center;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
