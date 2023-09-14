@@ -21,8 +21,6 @@ const LoginPage = () => {
     if (res.ok) {
       res.json().then((userInfo) => {
         setUserInfo(userInfo);
-        console.log(userInfo);
-
         setRedirect(true);
       });
     } else {

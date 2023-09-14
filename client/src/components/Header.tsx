@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Header.scss";
 import "../common.scss";
 import { useContext, useEffect, useState } from "react";
@@ -24,6 +24,7 @@ const Header = () => {
       method: "POST",
     });
     setUserInfo(null);
+    return <Navigate to={"/"} />;
   }
 
   return (
@@ -34,7 +35,10 @@ const Header = () => {
       <span>
         {username && (
           <>
-            <Link className="header-link color-accent-green" to={"/post"}>
+            <Link
+              className="header-link color-accent-green"
+              to={"/create-post"}
+            >
               New Post
             </Link>
             <a

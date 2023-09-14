@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  .title-input {
+    width: 50%;
+    border: 1px solid #565656;
+    padding: 0.5em;
+    border-radius: 5px;
+    &:focus {
+      outline: none;
+    }
+  }
+}
