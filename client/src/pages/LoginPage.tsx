@@ -1,23 +1,31 @@
 import "./LoginRegisterPage.scss";
 import "../common.scss";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
   async function login(ev: any) {
     ev.preventDefault();
-    const res = await fetch("http://localhost:4000/register", {
+    const res = await fetch("http://localhost:4000/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
     });
 
-    if (res.status === 200) {
-      alert("Registration successful!");
+    if (res.ok) {
+      setRedirect(true);
     } else {
-      alert("Registration failed.");
+      alert("Username/password incorrect");
     }
+  }
+
+  if (redirect) {
+    return <Navigate to={"/"} />;
   }
 
   return (
