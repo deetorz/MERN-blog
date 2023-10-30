@@ -5,9 +5,9 @@ const MainPage = () => {
   return (
     <>
       <div className="posts">
-        <Post />
-        <Post />
-        <Post />
+        <Post isDetailsPage={false} />
+        <Post isDetailsPage={false} />
+        <Post isDetailsPage={false} />
       </div>
     </>
   );
