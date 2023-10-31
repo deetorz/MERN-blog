@@ -49,16 +49,6 @@ const Header = () => {
             </a>
           </>
         )}
-        {!username && (
-          <>
-            <Link className="header-link color-accent-green" to={"/login"}>
-              Login
-            </Link>
-            <Link className="header-link color-accent-green" to={"/register"}>
-              Register
-            </Link>
-          </>
-        )}
       </span>
     </header>
   );

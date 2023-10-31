@@ -11,6 +11,8 @@ const Post = ({ isDetailsPage }: PostProps) => {
   return (
     <>
       {isDetailsPage ? (
+        <div></div>
+      ) : (
         <div className="post">
           <img
             src="https://techcrunch.com/wp-content/uploads/2023/09/GettyImages-1154922116.jpg?w=940&h=465&crop=1"
@@ -20,8 +22,6 @@ const Post = ({ isDetailsPage }: PostProps) => {
             New California law would force firms to report diversity metrics
           </h2>
         </div>
-      ) : (
-        <div></div>
       )}
     </>
   );

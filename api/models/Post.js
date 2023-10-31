@@ -3,12 +3,16 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
-const PostSchema = Schema({
-  title: { type: String, required: true, unique: true },
-  createdOn: { type: Date, required: true },
-  content: { type: String, required: true },
-  image: { type: Image, required: true },
-});
+const PostSchema = Schema(
+  {
+    title: { type: String, required: true, unique: true },
+    content: { type: String, required: true },
+    image: { type: String, required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const PostModel = model("Post", PostSchema);
 
