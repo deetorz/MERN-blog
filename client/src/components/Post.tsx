@@ -1,26 +1,28 @@
+import { format, formatISO9075, parseISO } from "date-fns";
 import "./Post.scss";
 
 // We define an interface PostDetailsProps to
-// specify the shape of the PostDetails component's
-// props. In this interface, we declare isDetailsPage as a boolean.
+// specify the shape of the PostDetails props
 interface PostProps {
   isDetailsPage: boolean;
+  title: string;
+  content: string;
+  image: string;
+  createdAt: string;
 }
 
-const Post = ({ isDetailsPage }: PostProps) => {
+const Post = (postProps: PostProps) => {
   return (
     <>
-      {isDetailsPage ? (
+      {postProps.isDetailsPage ? (
         <div></div>
       ) : (
         <div className="post">
-          <img
-            src="https://techcrunch.com/wp-content/uploads/2023/09/GettyImages-1154922116.jpg?w=940&h=465&crop=1"
-            alt=""
-          />
-          <h2 className="post-title">
-            New California law would force firms to report diversity metrics
-          </h2>
+          <img src={"http://localhost:4000/" + postProps.image} alt="" />
+          <div className="post-title">
+            <h2>{postProps.title}</h2>
+            <span>{format(new Date(postProps.createdAt), "MMM dd, yyyy")}</span>
+          </div>
         </div>
       )}
     </>

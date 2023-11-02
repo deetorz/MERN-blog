@@ -2,11 +2,13 @@ import { useState } from "react";
 import "./CreatePostPage.scss";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { Navigate } from "react-router-dom";
 
 const CreatePostPage = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState<File | null>();
+  const [redirect, setRedirect] = useState(false);
 
   async function createNewPost(event: any) {
     const newPostData = new FormData();
@@ -20,8 +22,15 @@ const CreatePostPage = () => {
       method: "POST",
       body: newPostData,
     });
+
+    if (response.ok) {
+      setRedirect(true);
+    }
   }
 
+  if (redirect) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <form onSubmit={createNewPost}>
       <input

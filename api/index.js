@@ -16,6 +16,7 @@ const Post = require("./models/Post");
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(express.json());
 app.use(cookieParser());
+app.use("/uploads", express.static(__dirname + "/uploads"));
 
 mongoose.connect(secrets.mongoConnection);
 
@@ -56,18 +57,6 @@ app.post("/logout", (req, res) => {
   res.cookie("token", "").json("ok");
 });
 
-app.get("/profile", (req, res) => {
-  // note to self: this was not working until I set the default
-  // browser in vite to localhost instead of 127.0.0.1
-  // I believe the issue comes from some strict header config
-  // that disables cross site cookie sharing
-  const { token } = req.cookies;
-  jwt.verify(token, secrets.jwtSecret, {}, (err, info) => {
-    if (err) throw err;
-    res.json(info);
-  });
-});
-
 app.post("/create-post", uploadMiddleware.single("image"), async (req, res) => {
   const { originalname, path } = req.file;
   const fileTypeExtension =
@@ -82,6 +71,22 @@ app.post("/create-post", uploadMiddleware.single("image"), async (req, res) => {
     image: newPath,
   });
   res.json(newPost);
+});
+
+app.get("/profile", (req, res) => {
+  // note to self: this was not working until I set the default
+  // browser in vite to localhost instead of 127.0.0.1
+  // I believe the issue comes from some strict header config
+  // that disables cross site cookie sharing
+  const { token } = req.cookies;
+  jwt.verify(token, secrets.jwtSecret, {}, (err, info) => {
+    if (err) throw err;
+    res.json(info);
+  });
+});
+
+app.get("/posts", async (req, res) => {
+  res.json(await Post.find().sort({ createdAt: -1 }));
 });
 
 app.listen(4000);
