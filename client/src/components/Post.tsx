@@ -1,5 +1,6 @@
 import { format, formatISO9075, parseISO } from "date-fns";
 import "./Post.scss";
+import { Link } from "react-router-dom";
 
 // We define an interface PostDetailsProps to
 // specify the shape of the PostDetails props
@@ -18,9 +19,13 @@ const Post = (postProps: PostProps) => {
         <div></div>
       ) : (
         <div className="post">
-          <img src={"http://localhost:4000/" + postProps.image} alt="" />
+          <Link to={"/post/id"}>
+            <img src={"http://localhost:4000/" + postProps.image} alt="" />
+          </Link>
           <div className="post-title">
-            <h2>{postProps.title}</h2>
+            <Link className="color-primary link" to={"/post/id"}>
+              <h2>{postProps.title}</h2>
+            </Link>
             <span>{format(new Date(postProps.createdAt), "MMM dd, yyyy")}</span>
           </div>
         </div>

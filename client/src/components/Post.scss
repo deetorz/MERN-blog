@@ -1,8 +1,11 @@
+@import url("../common.scss");
+
 .post {
   display: flex;
   flex-direction: column;
-  > img {
-    flex: 90%;
+  img {
+    height: 24em;
+    object-fit: cover;
     width: 100%;
   }
   &-title {
@@ -10,9 +13,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h2:hover {
-      text-decoration: underline;
-      cursor: pointer;
+    h2 {
+      // color: ;
+      color: inherit; /* blue colors for links too */
+      text-decoration: none; /* no underline */
     }
   }
 }
