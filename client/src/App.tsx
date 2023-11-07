@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import PostDetailsPage from "./pages/PostDetailsPage";
 import { UserContextProvider } from "./UserContext";
 import CreatePostPage from "./pages/CreatePostPage";
 
@@ -21,6 +22,7 @@ function App() {
           <Route path={"/login"} element={<LoginPage />} />
           <Route path={"/register"} element={<RegisterPage />} />
           <Route path={"/create-post"} element={<CreatePostPage />} />
+          <Route path={"/post/:id"} element={<PostDetailsPage />} />
         </Route>
       </Routes>
     </UserContextProvider>

@@ -3,7 +3,7 @@ import Post from "../components/Post";
 import "./MainPage.scss";
 
 interface Post {
-  _id: Key;
+  _id: string;
   title: string;
   content: string;
   image: string;

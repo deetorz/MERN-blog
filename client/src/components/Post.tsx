@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 // We define an interface PostDetailsProps to
 // specify the shape of the PostDetails props
 interface PostProps {
+  _id: string;
   isDetailsPage: boolean;
   title: string;
   content: string;
@@ -19,11 +20,11 @@ const Post = (postProps: PostProps) => {
         <div></div>
       ) : (
         <div className="post">
-          <Link to={"/post/id"}>
+          <Link to={`/post/${postProps._id}`}>
             <img src={"http://localhost:4000/" + postProps.image} alt="" />
           </Link>
           <div className="post-title">
-            <Link className="color-primary link" to={"/post/id"}>
+            <Link className="color-primary link" to={`/post/${postProps._id}`}>
               <h2>{postProps.title}</h2>
             </Link>
             <span>{format(new Date(postProps.createdAt), "MMM dd, yyyy")}</span>
